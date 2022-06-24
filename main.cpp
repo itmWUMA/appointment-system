@@ -1,27 +1,16 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
-using namespace std;
-
-// 显示界面
-void PrintMenu()
-{
-	cout << "============== 机房预约系统 ==============" << endl;
-	cout << "              [1] 学生代表" << endl;
-	cout << "              [2] 教   师" << endl;
-	cout << "              [3] 管 理 员" << endl;
-	cout << "              [0] 退   出" << endl;
-	cout << "==========================================" << endl;
-	cout << "> ";
-}
+#include "Controller.h"
 
 int main()
 {
 	int ipt = 0;
+	// 创建管理类对象
+	Controller controller;
 
 	do
 	{
 		// 显示界面
-		PrintMenu();
+		controller.PrintMenu();
 
 		// 获取输入
 		cin >> ipt;
@@ -41,8 +30,7 @@ int main()
 			break;
 		default:
 			cout << "输入错误！" << endl;
-			system("pause");
-			system("cls");
+			controller.CleanAndPause();
 			break;
 		}
 	} while (ipt);

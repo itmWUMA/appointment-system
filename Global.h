@@ -4,12 +4,12 @@
 */
 
 // 管理员文件
-#define ADMIN_FILE "admin.txt"
+#define ADMIN_FILE "admin.dat"
 // 学生文件
-#define STU_FILE "student.txt"
+#define STU_FILE "student.dat"
 // 教师文件
-#define TEACHER_FILE "teacher.txt"
+#define TEACHER_FILE "teacher.dat"
 // 机房文件
-#define ROOM_FILE "room.txt"
+#define ROOM_FILE "room.dat"
 // 预约信息文件
-#define ORDER_FILE "order.txt"
+#define ORDER_FILE "order.dat"
