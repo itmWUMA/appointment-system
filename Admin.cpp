@@ -113,9 +113,12 @@ void Admin::ShowPerson(const set<Student>& stus, const set<Teacher>& teachers)
 
 void Admin::ShowRoomInfo(const vector<Room>& rooms)
 {
-	// 读取room文件
-	ifstream ifs(ROOM_FILE, ios::in);
-	
+	cout << "机房信息如下：(机房编号  最大容量  当前已占用数量)" << endl;
+	for (vector<Room>::const_iterator itor = rooms.begin(); itor != rooms.end(); itor++)
+		cout << itor->id << " " << itor->capcity << " " << itor->size << endl;
+
+	system("pause");
+	system("cls");
 }
 
 void Admin::ClearFile()
