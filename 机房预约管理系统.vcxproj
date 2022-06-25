@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <CopyLocalDeploymentContent>true</CopyLocalDeploymentContent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -153,6 +154,13 @@
     <ClInclude Include="Identity.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Teacher.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\admin.dat" />
+    <None Include="Data\order.dat" />
+    <None Include="Data\room.dat" />
+    <None Include="Data\student.dat" />
+    <None Include="Data\teacher.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
