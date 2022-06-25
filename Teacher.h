@@ -25,9 +25,6 @@ public:
    // 菜单界面
    virtual void OpenMenu();
 
-   // 查看所有预约
-   virtual void ShowAllOrder();
-
    // 审核预约
    void ValidOrder();
 };

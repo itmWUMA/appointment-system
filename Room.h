@@ -8,6 +8,5 @@ class Room
 public:
 	int id;	// 机房id
 	int capcity;	// 容量
-	int size;	// 使用个数
 };
 

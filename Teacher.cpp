@@ -37,10 +37,6 @@ void Teacher::OpenMenu()
 	cout << "> ";
 }
 
-void Teacher::ShowAllOrder()
-{
-}
-
 void Teacher::ValidOrder()
 {
 }

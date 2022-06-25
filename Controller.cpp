@@ -80,7 +80,7 @@ void Controller::ParseRoom()
 	// 解析
 	rooms.clear();
 	Room room;
-	while (ifs >> room.id && ifs >> room.capcity && ifs >> room.size)
+	while (ifs >> room.id && ifs >> room.capcity)
 		rooms.push_back(room);
 
 	// 关闭文件
@@ -99,12 +99,13 @@ void Controller::ParseOrder()
 	}
 
 	// 解析
+	this->orders.clear();
 	Order o;
 	string name;
 	int id, room, week, time, n_status;
-	while (ifs >> week && ifs >> time && ifs >> id && ifs >> name && ifs >> n_status)
+	while (ifs >> week && ifs >> time && ifs >> id && ifs >> name && ifs >> room && ifs >> n_status)
 	{
-		o = Order(name, id, week, time, (Order::Status)n_status);
+		o = Order(name, id, week, time, room, (Order::Status)n_status);
 		this->orders.insert(make_pair(id, o));
 	}
 
@@ -124,16 +125,18 @@ void Controller::StartStudent(Student& stu)
 		{
 		case 1:	// 申请预约
 			stu.ApplyOrder(this->rooms);
-			// TODO: 刷新容器orders
-
+			// 刷新容器orders
+			ParseOrder();
+			// 刷新容器rooms
+			ParseRoom();
 			break;
 
 		case 2:	// 查看我的预约
-			stu.ShowMyOrder();
+			stu.ShowMyOrder(this->orders);
 			break;
 
 		case 3:	// 查看所有预约
-			stu.ShowAllOrder();
+			stu.ShowAllOrder(this->orders);
 			break;
 
 		case 4:	// 取消预约
@@ -189,8 +192,8 @@ void Controller::StartAdmin(Admin& admin)
 
 		case 4: // 清空预约
 			admin.ClearFile();
-			// TODO: 刷新容器orders
-
+			// 刷新容器orders
+			ParseOrder();
 			break;
 
 		default:
@@ -212,6 +215,7 @@ Controller::Controller()
 	ParseStudent();
 	ParseTeacher();
 	ParseRoom();
+	ParseOrder();
 }
 
 void Controller::PrintMenu()

@@ -8,7 +8,7 @@ void Student::WriteOrderFile(vector<Room>& rooms, int i, int week, int time)
 		<< time << " "
 		<< this->id << " "
 		<< this->name << " "
-		<< rooms[i].id << " "
+		<< rooms[i - 1].id << " "
 		<< (int)Order::Status::IN_REVIEW << endl;
 	ofs.close();
 }
@@ -79,15 +79,15 @@ void Student::ApplyOrder(vector<Room>& rooms)
 	// 显示机房信息
 	cout << "请选择机房(输入编号选择，退出输入0)：" << endl;
 	for (vector<Room>::iterator itor = rooms.begin(); itor != rooms.end(); itor++)
-		cout << "- 机房" << itor->id << "剩余机位：" << (itor->capcity - itor->size) << endl;
+		cout << "- 机房" << itor->id << "容量" << itor->capcity << endl;
 	// 获取用户选择
 	cout << "> ";
 	int iptRoom = 0;
-	do
+
+	while (true)
 	{
 		cin >> iptRoom;
-		// 符合预约条件
-		if (rooms[iptRoom - 1].size < rooms[iptRoom - 1].capcity)
+		if (iptRoom >= 1 && iptRoom <= 3)
 		{
 			// 将预约信息写入文件中
 			WriteOrderFile(rooms, iptRoom, iptWeek, iptTime);
@@ -96,22 +96,37 @@ void Student::ApplyOrder(vector<Room>& rooms)
 			system("cls");
 			return;
 		}
-		// 不符合预约条件
-		else
-			cout << "该房间已满员！" << endl;
-	} while (iptRoom);
+		cout << "输入错误！" << endl;
+	}
 
-	cout << "已退出预约！" << endl;
 	system("pause");
 	system("cls");
 }
 
-void Student::ShowMyOrder()
+void Student::ShowMyOrder(const multimap<int, Order>& orders)
 {
-}
+	// 获取预约信息
+	int count = orders.count(this->id);
+	if (count == 0)
+	{
+		cout << "无预约记录" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	// 遍历所有预约记录
+	cout << "预约记录如下(机房编号 预约时间 预约时间段 当前状态)：" << endl;
+	multimap<int, Order>::const_iterator itor = orders.find(this->id);
+	for (int i = 0; i < count; i++, itor++)
+	{
+		cout << "机房" << itor->second.room << " "
+			<< "星期" << (itor->second.week) << " "
+			<< (itor->second.time == 1 ? "上午" : "下午") << " "
+			<< Order::StatusToString(itor->second.status) << endl;
+	}
 
-void Student::ShowAllOrder()
-{
+	system("pause");
+	system("cls");
 }
 
 void Student::CancelOrder()

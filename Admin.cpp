@@ -113,9 +113,9 @@ void Admin::ShowPerson(const set<Student>& stus, const set<Teacher>& teachers)
 
 void Admin::ShowRoomInfo(const vector<Room>& rooms)
 {
-	cout << "机房信息如下：(机房编号  最大容量  当前已占用数量)" << endl;
+	cout << "机房信息如下(机房编号  最大容量)：" << endl;
 	for (vector<Room>::const_iterator itor = rooms.begin(); itor != rooms.end(); itor++)
-		cout << itor->id << " " << itor->capcity << " " << itor->size << endl;
+		cout << itor->id << " " << itor->capcity << endl;
 
 	system("pause");
 	system("cls");

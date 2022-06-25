@@ -32,5 +32,5 @@ public:
 	virtual void OpenMenu() = 0;
 
 	// 查看所有预约
-	virtual void ShowAllOrder();
+	virtual void ShowAllOrder(const multimap<int, Order>& orders);
 };

@@ -35,10 +35,7 @@ public:
     void ApplyOrder(vector<Room>& rooms);
 
     // 查看自身预约
-    void ShowMyOrder();
-
-    // 查看所有人预约
-    virtual void ShowAllOrder();
+    void ShowMyOrder(const multimap<int, Order>& orders);
 
     // 取消预约
     void CancelOrder();

@@ -21,8 +21,12 @@ public:
 	int id;  // 学号
 	int week;	// 预约时间
 	int time;	// 预约时间段
+	int room;	// 机房编号
 	Status status;	// 预约状态
 
-	Order(string name, int id, int week, int time, Status status);
+	Order(string name, int id, int week, int time, int room, Status status);
 	Order();
+
+	// 将Status转化字符串
+	static string StatusToString(Status s);
 };
