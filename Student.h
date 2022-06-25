@@ -11,6 +11,10 @@
 class Student :
     public Identity
 {
+private:
+   // 将预约写入文件中    [week  time  id  name  room  status]
+   void WriteOrderFile(vector<Room>& rooms, int i, int week, int time);
+
 public:
    // 学生ID
    int id;
@@ -28,7 +32,7 @@ public:
     virtual void OpenMenu();
 
     // 申请预约
-    void ApplyOrder();
+    void ApplyOrder(vector<Room>& rooms);
 
     // 查看自身预约
     void ShowMyOrder();

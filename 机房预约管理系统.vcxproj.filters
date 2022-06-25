@@ -62,6 +62,9 @@
     <ClInclude Include="Room.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Status.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\admin.info">

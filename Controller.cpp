@@ -88,8 +88,40 @@ void Controller::ParseRoom()
 
 void Controller::StartStudent(Student& stu)
 {
-	// 显示页面
-	stu.OpenMenu();
+	int ipt = 0;
+	do
+	{
+		// 显示页面
+		stu.OpenMenu();
+		cin >> ipt;
+		switch (ipt)
+		{
+		case 1:	// 申请预约
+			stu.ApplyOrder(this->rooms);
+			// TODO: 刷新容器orders
+
+			break;
+
+		case 2:	// 查看我的预约
+			stu.ShowMyOrder();
+			break;
+
+		case 3:	// 查看所有预约
+			stu.ShowAllOrder();
+			break;
+
+		case 4:	// 取消预约
+			stu.CancelOrder();
+			break;
+
+		case 0:	// 注销登录
+			Logout();
+			break;
+
+		default:
+			break;
+		}
+	} while (ipt);
 }
 
 void Controller::StartTeacher(Teacher& teacher)
@@ -111,8 +143,7 @@ void Controller::StartAdmin(Admin& admin)
 		switch (ipt)
 		{
 		case 0: // 注销
-			cout << "注销成功！" << endl;
-			CleanAndPause();
+			Logout();
 			break;
 
 		case 1: // 添加账号
@@ -140,6 +171,12 @@ void Controller::StartAdmin(Admin& admin)
 			break;
 		}
 	} while (ipt);
+}
+
+void Controller::Logout()
+{
+	cout << "注销成功！" << endl;
+	CleanAndPause();
 }
 
 Controller::Controller()
@@ -179,7 +216,8 @@ void Controller::Login(Identity::IdentityType type)
 	string name, pwd;
 	switch (type)
 	{
-	case Identity::IdentityType::STU:	// 学生身份
+		// 学生身份
+	case Identity::IdentityType::STU:
 		cout << "请输入学号：> ";
 		cin >> id;
 		cout << "请输入姓名：> ";
@@ -196,7 +234,8 @@ void Controller::Login(Identity::IdentityType type)
 		}
 		break;
 
-	case Identity::IdentityType::TEACHER:	// 教师身份
+		// 教师身份
+	case Identity::IdentityType::TEACHER:
 		cout << "请输入职工号：> ";
 		cin >> id;
 		cout << "请输入姓名：> ";
@@ -213,7 +252,8 @@ void Controller::Login(Identity::IdentityType type)
 		}
 		break;
 
-	case Identity::IdentityType::ADMIN:	// 管理员身份
+		// 管理员身份
+	case Identity::IdentityType::ADMIN:
 		cout << "请输入管理员姓名：> ";
 		cin >> name;
 		cout << "请输入密码：> ";

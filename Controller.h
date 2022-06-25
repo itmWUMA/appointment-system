@@ -41,6 +41,9 @@ private:
 	// 管理员操作
 	void StartAdmin(Admin& admin);
 
+	// 登出(注销)
+	void Logout();
+
 public:
 	Controller();
 
@@ -50,10 +53,7 @@ public:
 	// 清屏+暂停
 	void CleanAndPause();
 
-	/// <summary>
-	/// 登录
-	/// </summary>
-	/// <param name="type">登录身份</param>
+	// 登录
 	void Login(Identity::IdentityType type);
 };
 

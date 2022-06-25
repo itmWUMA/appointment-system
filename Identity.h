@@ -1,6 +1,7 @@
 #pragma once
 #include "Global.h"
 #include "Room.h"
+#include "Status.h"
 #include <string>
 #include <iostream>
 #include <fstream>

@@ -154,6 +154,7 @@
     <ClInclude Include="Global.h" />
     <ClInclude Include="Identity.h" />
     <ClInclude Include="Room.h" />
+    <ClInclude Include="Status.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Teacher.h" />
   </ItemGroup>
