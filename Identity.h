@@ -1,8 +1,11 @@
 #pragma once
 #include "Global.h"
+#include "Room.h"
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <set>
+#include <vector>
 using namespace std;
 
 /* 身份接口

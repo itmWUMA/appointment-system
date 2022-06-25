@@ -3,8 +3,10 @@
 #include "Student.h"
 #include "Admin.h"
 #include "Teacher.h"
+#include "Room.h"
 #include <fstream>
 #include <set>
+#include <vector>
 using namespace std;
 
 /*	流程控制类
@@ -16,6 +18,7 @@ private:
 	set<Student> stus;	// 学生信息
 	set<Teacher> teachers;	// 教师信息
 	set<Admin> admins;	// 管理员信息
+	vector<Room> rooms;	// 机房信息
 
 	// 学生解析
 	void ParseStudent();
@@ -25,6 +28,9 @@ private:
 
 	// 管理员解析
 	void ParseAdmin();
+
+	// 机房解析
+	void ParseRoom();
 
 	// 学生操作
 	void StartStudent(Student& stu);

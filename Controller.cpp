@@ -66,6 +66,26 @@ void Controller::ParseAdmin()
 	ifs.close();
 }
 
+void Controller::ParseRoom()
+{
+	// 读取room文件
+	ifstream ifs(ROOM_FILE, ios::in);
+	if (!ifs.is_open())
+	{
+		cout << "文件不存在！" << endl;
+		ifs.close();
+		return;
+	}
+
+	rooms.clear();
+	Room room;
+	while (ifs >> room.id && ifs >> room.capcity && ifs >> room.size)
+		rooms.push_back(room);
+
+	// 关闭文件
+	ifs.close();
+}
+
 void Controller::StartStudent(Student& stu)
 {
 	// 显示页面
@@ -103,11 +123,11 @@ void Controller::StartAdmin(Admin& admin)
 			break;
 
 		case 2: // 查看账号
-			admin.ShowPerson();
+			admin.ShowPerson(this->stus, this->teachers);
 			break;
 
 		case 3: // 查看机房
-			admin.ShowRoomInfo();
+			admin.ShowRoomInfo(this->rooms);
 			break;
 
 		case 4: // 清空预约
@@ -126,6 +146,7 @@ Controller::Controller()
 	ParseAdmin();
 	ParseStudent();
 	ParseTeacher();
+	ParseRoom();
 }
 
 void Controller::PrintMenu()

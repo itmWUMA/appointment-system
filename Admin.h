@@ -1,7 +1,7 @@
 #pragma once
 #include "Identity.h"
-//#include "Student.h"
-//#include "Teacher.h"
+#include "Student.h"
+#include "Teacher.h"
 
 /* 管理员类
    - 菜单界面
@@ -30,10 +30,10 @@ public:
    void AddPerson();
 
    // 查看账号
-   void ShowPerson();
+   void ShowPerson(const set<Student>& stus, const set<Teacher>& teachers);
 
    // 查看机房信息
-   void ShowRoomInfo();
+   void ShowRoomInfo(const vector<Room>& rooms);
 
    // 清空预约记录
    void ClearFile();

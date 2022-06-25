@@ -84,12 +84,38 @@ void Admin::AddPerson()
 	system("cls");
 }
 
-void Admin::ShowPerson()
+void Admin::ShowPerson(const set<Student>& stus, const set<Teacher>& teachers)
 {
+	cout << "请输入需要查找的账号类型([1]学生 | [2]老师)：> ";
+	int ipt = 0;
+	cin >> ipt;
+	if (ipt == 1)
+	{
+		for (set<Student>::iterator itor = stus.begin(); itor != stus.end(); itor++)
+			cout << itor->id << " " << itor->name << " " << itor->pwd << endl;
+	}
+	else if (ipt == 2)
+	{
+		for (set<Teacher>::iterator itor = teachers.begin(); itor != teachers.end(); itor++)
+			cout << itor->id << " " << itor->name << " " << itor->pwd << endl;
+	}
+	else
+	{
+		cout << "输入错误！" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+
+	system("pause");
+	system("cls");
 }
 
-void Admin::ShowRoomInfo()
+void Admin::ShowRoomInfo(const vector<Room>& rooms)
 {
+	// 读取room文件
+	ifstream ifs(ROOM_FILE, ios::in);
+	
 }
 
 void Admin::ClearFile()
