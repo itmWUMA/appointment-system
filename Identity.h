@@ -13,6 +13,13 @@ public:
 	string name;
 	// 密码
 	string pwd;
+	// 身份类型
+	enum class IdentityType
+	{
+		STU,
+		TEACHER,
+		ADMIN,
+	};
 
 	// 操作菜单
 	virtual void OpenMenu() = 0;

@@ -78,7 +78,13 @@
 
 
 
-#### 4. 参与贡献
+#### 4. 使用说明
+
+自行使用编译器进行编译并运行可执行文件
+
+
+
+#### 5. 参与贡献
 
 itmWuma
 
@@ -86,6 +92,6 @@ https://gitee.com/itmwuma
 
 
 
-#### 5. 参考
+#### 6. 参考
 
 https://www.bilibili.com/video/BV1et411b73Z?p=282&share_source=copy_web
