@@ -6,18 +6,19 @@
 
 
 #### 2. 软件架构
-> │  Admin.cpp
 > │  Admin.h	--- 管理员类
-> │  Controller.cpp
+>
 > │  Controller.h	--- 控制器类（用以控制程序流程）
+>
 > │  Global.h	--- 全局参数文件（用以声明预定义和宏）
-> │  Identity.cpp
+>
 > │  Identity.h	--- 身份接口
+>
 > │  main.cpp	--- 程序入口
-> │  Student.cpp
+>
 > │  Student.h	--- 学生类
-> │  Teacher.cpp
-> │  Teacher.h	--- 教授类
+>
+> │  Teacher.h	--- 教师类
 
 #### 3. 功能介绍
 
