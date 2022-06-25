@@ -19,6 +19,7 @@ private:
 	set<Teacher> teachers;	// 教师信息
 	set<Admin> admins;	// 管理员信息
 	vector<Room> rooms;	// 机房信息
+	multimap<int, Order> orders; // 预约信息
 
 	// 学生解析
 	void ParseStudent();
@@ -31,6 +32,9 @@ private:
 
 	// 机房解析
 	void ParseRoom();
+
+	// 预约解析
+	void ParseOrder();
 
 	// 学生操作
 	void StartStudent(Student& stu);

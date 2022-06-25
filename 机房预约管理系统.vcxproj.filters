@@ -39,6 +39,9 @@
     <ClCompile Include="Room.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Order.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Identity.h">
@@ -62,7 +65,7 @@
     <ClInclude Include="Room.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Status.h">
+    <ClInclude Include="Order.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

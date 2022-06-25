@@ -77,10 +77,36 @@ void Controller::ParseRoom()
 		return;
 	}
 
+	// 解析
 	rooms.clear();
 	Room room;
 	while (ifs >> room.id && ifs >> room.capcity && ifs >> room.size)
 		rooms.push_back(room);
+
+	// 关闭文件
+	ifs.close();
+}
+
+void Controller::ParseOrder()
+{
+	// 读取文件
+	ifstream ifs(ORDER_FILE, ios::in);
+	if (!ifs.is_open())
+	{
+		cout << "文件不存在！" << endl;
+		ifs.close();
+		return;
+	}
+
+	// 解析
+	Order o;
+	string name;
+	int id, room, week, time, n_status;
+	while (ifs >> week && ifs >> time && ifs >> id && ifs >> name && ifs >> n_status)
+	{
+		o = Order(name, id, week, time, (Order::Status)n_status);
+		this->orders.insert(make_pair(id, o));
+	}
 
 	// 关闭文件
 	ifs.close();

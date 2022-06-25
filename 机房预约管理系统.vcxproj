@@ -144,6 +144,7 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Identity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Order.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Teacher.cpp" />
@@ -153,8 +154,8 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Identity.h" />
+    <ClInclude Include="Order.h" />
     <ClInclude Include="Room.h" />
-    <ClInclude Include="Status.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Teacher.h" />
   </ItemGroup>

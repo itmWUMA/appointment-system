@@ -9,7 +9,7 @@ void Student::WriteOrderFile(vector<Room>& rooms, int i, int week, int time)
 		<< this->id << " "
 		<< this->name << " "
 		<< rooms[i].id << " "
-		<< (int)Status::IN_REVIEW << endl;
+		<< (int)Order::Status::IN_REVIEW << endl;
 	ofs.close();
 }
 
