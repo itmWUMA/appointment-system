@@ -123,4 +123,10 @@ void Admin::ShowRoomInfo(const vector<Room>& rooms)
 
 void Admin::ClearFile()
 {
+	ofstream ofs(ORDER_FILE, ios::trunc);
+	ofs.close();
+
+	cout << "Ô¤Ô¼ÒÑÇå¿Õ£¡" << endl;
+	system("pause");
+	system("cls");
 }

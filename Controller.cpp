@@ -117,7 +117,7 @@ void Controller::StartAdmin(Admin& admin)
 
 		case 1: // Ìí¼ÓÕËºÅ
 			admin.AddPerson();
-			// Ë¢ĞÂset
+			// Ë¢ĞÂÈİÆ÷
 			ParseStudent();
 			ParseTeacher();
 			break;
@@ -132,6 +132,8 @@ void Controller::StartAdmin(Admin& admin)
 
 		case 4: // Çå¿ÕÔ¤Ô¼
 			admin.ClearFile();
+			// TODO: Ë¢ĞÂÈİÆ÷orders
+
 			break;
 
 		default:
