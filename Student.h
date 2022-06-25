@@ -18,6 +18,9 @@ public:
     Student();
     Student(int id, string name, string pwd);
 
+    // 重载比较运算符
+    virtual bool operator==(const Student& stu);
+
     // 菜单界面
     virtual void OpenMenu();
 

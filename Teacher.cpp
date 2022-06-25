@@ -14,6 +14,11 @@ Teacher::Teacher(int id, string name, string pwd)
 	this->pwd = pwd;
 }
 
+bool Teacher::operator==(const Teacher& t)
+{
+	return (this->id == t.id && this->name == t.name && this->pwd == t.pwd);
+}
+
 void Teacher::OpenMenu()
 {
 }

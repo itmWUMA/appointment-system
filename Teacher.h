@@ -16,6 +16,9 @@ public:
    Teacher();
    Teacher(int id, string name, string pwd);
 
+   // 重载比较运算符
+   virtual bool operator==(const Teacher& t);
+
    // 菜单界面
    virtual void OpenMenu();
 

@@ -14,6 +14,11 @@ Student::Student(int id, string name, string pwd)
 	this->pwd = pwd;
 }
 
+bool Student::operator==(const Student& stu)
+{
+	return (this->name == stu.name && this->pwd == stu.pwd && this->id == stu.id);
+}
+
 void Student::OpenMenu()
 {
 }

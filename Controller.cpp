@@ -1,5 +1,79 @@
 #include "Controller.h"
 
+void Controller::ParseStudent()
+{
+	// 读取文件
+	ifstream ifs(STU_FILE, ios::in | ios::binary);
+	// 文件不存在情况
+	if (!ifs.is_open())
+	{
+		cout << "文件不存在！" << endl;
+		ifs.close();
+		return;
+	}
+
+	// 将解析的数据重新添加至stus中
+	this->stus.clear();
+	Student stu;
+	while (ifs.read((char*)(&stu), sizeof(Student)))
+		this->stus.insert(stu);
+
+	// 关闭文件
+	ifs.close();
+}
+
+void Controller::ParseTeacher()
+{
+	// 读取文件
+	ifstream ifs(TEACHER_FILE, ios::in | ios::binary);
+	// 文件不存在情况
+	if (!ifs.is_open())
+	{
+		cout << "文件不存在！" << endl;
+		ifs.close();
+		return;
+	}
+
+	// 将解析的数据重新添加至teachers中
+	this->teachers.clear();
+	Teacher t;
+	while (ifs.read((char*)(&t), sizeof(Teacher)))
+		this->teachers.insert(t);
+
+	// 关闭文件
+	ifs.close();
+}
+
+void Controller::ParseAdmin()
+{
+	// 读取文件
+	ifstream ifs(ADMIN_FILE, ios::in | ios::binary);
+	// 文件不存在情况
+	if (!ifs.is_open())
+	{
+		cout << "文件不存在！" << endl;
+		ifs.close();
+		return;
+	}
+
+	// 将解析的数据重新添加至stus中
+	this->admins.clear();
+	Admin admin;
+	while (ifs.read((char*)(&admin), sizeof(Admin)))
+		this->admins.insert(admin);
+
+	// 关闭文件
+	ifs.close();
+}
+
+Controller::Controller()
+{
+	// 解析现有数据
+	ParseAdmin();
+	ParseStudent();
+	ParseTeacher();
+}
+
 void Controller::PrintMenu()
 {
 	cout << "============== 机房预约系统 ==============" << endl;
@@ -40,7 +114,8 @@ void Controller::Login(string fileName, Identity::IdentityType type)
 		cin >> id;
 		cout << "请输入密码：> ";
 		cin >> pwd;
-		// 学生身份验证
+		// 解析学生身份
+		
 
 		break;
 	case Identity::IdentityType::TEACHER:	// 教师身份

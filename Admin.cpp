@@ -12,6 +12,11 @@ Admin::Admin(string name, string pwd)
 	this->pwd = pwd;
 }
 
+bool Admin::operator==(const Admin& a)
+{
+	return (this->name == a.name && this->pwd == a.pwd);
+}
+
 void Admin::OpenMenu()
 {
 }

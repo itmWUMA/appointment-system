@@ -15,6 +15,9 @@ public:
    Admin();
    Admin(string name, string pwd);
 
+   // 重载比较操作符
+   virtual bool operator==(const Admin& a);
+
    // 菜单界面
    virtual void OpenMenu();
 
