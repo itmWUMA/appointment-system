@@ -18,6 +18,9 @@ public:
    // 重载比较操作符
    virtual bool operator==(const Admin& a);
 
+   // 重载小于操作符
+   bool operator<(const Admin& a) const;
+
    // 菜单界面
    virtual void OpenMenu();
 

@@ -3,9 +3,8 @@
 #include "Student.h"
 #include "Admin.h"
 #include "Teacher.h"
-#include <iostream>
 #include <fstream>
-#include <unordered_set>
+#include <set>
 using namespace std;
 
 /*	流程控制类
@@ -14,9 +13,9 @@ using namespace std;
 class Controller
 {
 private:
-	unordered_set<Student> stus;	// 学生信息
-	unordered_set<Teacher> teachers;	// 教师信息
-	unordered_set<Admin> admins;	// 管理员信息
+	set<Student> stus;	// 学生信息
+	set<Teacher> teachers;	// 教师信息
+	set<Admin> admins;	// 管理员信息
 
 	// 学生解析
 	void ParseStudent();
@@ -26,6 +25,15 @@ private:
 
 	// 管理员解析
 	void ParseAdmin();
+
+	// 学生操作
+	void StartStudent(Student& stu);
+
+	// 教师操作
+	void StartTeacher(Teacher& teacher);
+
+	// 管理员操作
+	void StartAdmin(Admin& admin);
 
 public:
 	Controller();
@@ -39,8 +47,7 @@ public:
 	/// <summary>
 	/// 登录
 	/// </summary>
-	/// <param name="fileName">文件名</param>
 	/// <param name="type">登录身份</param>
-	void Login(string fileName, Identity::IdentityType type);
+	void Login(Identity::IdentityType type);
 };
 

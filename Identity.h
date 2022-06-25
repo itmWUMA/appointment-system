@@ -1,6 +1,7 @@
 #pragma once
 #include "Global.h"
 #include <string>
+#include <iostream>
 using namespace std;
 
 /* 身份接口
@@ -23,9 +24,6 @@ public:
 
 	// 操作菜单
 	virtual void OpenMenu() = 0;
-
-	// 注销登录
-	virtual void Logout();
 
 	// 查看所有预约
 	virtual void ShowAllOrder();

@@ -23,13 +23,13 @@ int main()
 			cout << "Goodbye!" << endl;
 			break;
 		case 1:	// 学生代表
-			controller.Login(STU_FILE, Identity::IdentityType::STU);
+			controller.Login(Identity::IdentityType::STU);
 			break;
 		case 2:	// 教师
-			controller.Login(TEACHER_FILE, Identity::IdentityType::TEACHER);
+			controller.Login(Identity::IdentityType::TEACHER);
 			break;
 		case 3:	// 管理员
-			controller.Login(ADMIN_FILE, Identity::IdentityType::ADMIN);
+			controller.Login(Identity::IdentityType::ADMIN);
 			break;
 		default:
 			cout << "输入错误！" << endl;

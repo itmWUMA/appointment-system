@@ -16,8 +16,11 @@ public:
    Teacher();
    Teacher(int id, string name, string pwd);
 
-   // 重载比较运算符
+   // 重载比较操作符
    virtual bool operator==(const Teacher& t);
+
+   // 重载小于操作符
+   bool operator<(const Teacher& t) const;
 
    // 菜单界面
    virtual void OpenMenu();

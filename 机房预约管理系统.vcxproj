@@ -156,11 +156,11 @@
     <ClInclude Include="Teacher.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\admin.dat" />
-    <None Include="Data\order.dat" />
-    <None Include="Data\room.dat" />
-    <None Include="Data\student.dat" />
-    <None Include="Data\teacher.dat" />
+    <None Include="Data\admin.info" />
+    <None Include="Data\order.info" />
+    <None Include="Data\room.info" />
+    <None Include="Data\student.info" />
+    <None Include="Data\teacher.info" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

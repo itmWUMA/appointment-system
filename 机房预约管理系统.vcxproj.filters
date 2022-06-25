@@ -58,19 +58,19 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\admin.dat">
+    <None Include="Data\admin.info">
       <Filter>Data</Filter>
     </None>
-    <None Include="Data\order.dat">
+    <None Include="Data\order.info">
       <Filter>Data</Filter>
     </None>
-    <None Include="Data\room.dat">
+    <None Include="Data\room.info">
       <Filter>Data</Filter>
     </None>
-    <None Include="Data\student.dat">
+    <None Include="Data\student.info">
       <Filter>Data</Filter>
     </None>
-    <None Include="Data\teacher.dat">
+    <None Include="Data\teacher.info">
       <Filter>Data</Filter>
     </None>
   </ItemGroup>

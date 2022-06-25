@@ -21,6 +21,9 @@ public:
     // 重载比较运算符
     virtual bool operator==(const Student& stu);
 
+    // 重载小于运算符
+    bool operator<(const Student& stu) const;
+
     // 菜单界面
     virtual void OpenMenu();
 
