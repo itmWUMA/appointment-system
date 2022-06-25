@@ -1,5 +1,7 @@
 #pragma once
 #include "Identity.h"
+//#include "Student.h"
+//#include "Teacher.h"
 
 /* 管理员类
    - 菜单界面

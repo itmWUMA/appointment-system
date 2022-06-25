@@ -39,7 +39,49 @@ void Admin::OpenMenu()
 
 void Admin::AddPerson()
 {
+	ofstream ofs;
+	string fileName, idName;
 
+	cout << "请输入添加账号的类型([1]学生 | [2]老师) > ";
+	int ipt = 0;
+	cin >> ipt;
+
+
+	// 选项的配置
+	if (ipt == 1)
+	{
+		fileName = STU_FILE;
+		idName = "学号";
+	}
+	else if (ipt == 2)
+	{
+		fileName = TEACHER_FILE;
+		idName = "职工号";
+	}
+	else
+	{
+		cout << "输入错误！" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+
+	// 录入信息
+	ofs.open(fileName, ios::out | ios::app);
+	int id;
+	string name, pwd;
+	cout << "请输入" << idName << "> ";
+	cin >> id;
+	cout << "请输入姓名：> ";
+	cin >> name;
+	cout << "请输入密码：> ";
+	cin >> pwd;
+	ofs << id << ' ' << name << ' ' << pwd << endl;
+	ofs.close();
+	cout << "录入成功！" << endl;
+
+	system("pause");
+	system("cls");
 }
 
 void Admin::ShowPerson()

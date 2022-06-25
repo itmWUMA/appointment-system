@@ -2,6 +2,7 @@
 #include "Global.h"
 #include <string>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 /* 身份接口

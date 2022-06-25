@@ -29,7 +29,7 @@ void Student::OpenMenu()
 	system("cls");
 
 	cout << "你好，" << this->name << "同学" << endl;
-	cout << "============== 管理员操作系统 ==============" << endl;
+	cout << "============== 学生操作系统 ==============" << endl;
 	cout << "              [1] 申请预约" << endl;
 	cout << "              [2] 查看我的预约" << endl;
 	cout << "              [3] 查看所有预约" << endl;

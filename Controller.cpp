@@ -80,38 +80,44 @@ void Controller::StartTeacher(Teacher& teacher)
 
 void Controller::StartAdmin(Admin& admin)
 {
-	// 显示页面
-	admin.OpenMenu();
-
-	// 获取输入
 	int ipt = 0;
-	cin >> ipt;
-	switch (ipt)
+	do
 	{
-	case 0: // 注销
-		cout << "注销成功！" << endl;
-		CleanAndPause();
-		break;
+		// 显示页面
+		admin.OpenMenu();
 
-	case 1: // 添加账号
-		admin.AddPerson();
-		break;
+		// 获取输入
+		cin >> ipt;
+		switch (ipt)
+		{
+		case 0: // 注销
+			cout << "注销成功！" << endl;
+			CleanAndPause();
+			break;
 
-	case 2: // 查看账号
-		admin.ShowPerson();
-		break;
+		case 1: // 添加账号
+			admin.AddPerson();
+			// 刷新set
+			ParseStudent();
+			ParseTeacher();
+			break;
 
-	case 3: // 查看机房
-		admin.ShowRoomInfo();
-		break;
+		case 2: // 查看账号
+			admin.ShowPerson();
+			break;
 
-	case 4: // 清空预约
-		admin.ClearFile();
-		break;
+		case 3: // 查看机房
+			admin.ShowRoomInfo();
+			break;
 
-	default:
-		break;
-	}
+		case 4: // 清空预约
+			admin.ClearFile();
+			break;
+
+		default:
+			break;
+		}
+	} while (ipt);
 }
 
 Controller::Controller()
