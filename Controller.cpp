@@ -127,8 +127,6 @@ void Controller::StartStudent(Student& stu)
 			stu.ApplyOrder(this->rooms);
 			// 刷新容器orders
 			ParseOrder();
-			// 刷新容器rooms
-			ParseRoom();
 			break;
 
 		case 2:	// 查看我的预约
@@ -140,7 +138,9 @@ void Controller::StartStudent(Student& stu)
 			break;
 
 		case 4:	// 取消预约
-			stu.CancelOrder();
+			stu.CancelOrder(this->orders);
+			// 刷新容器orders
+			ParseOrder();
 			break;
 
 		case 0:	// 注销登录

@@ -18,6 +18,27 @@ private:
    // 判断是否重复预约
    bool IsRepeatOrder(const Order& order);
 
+   // 获取当前学生的预约记录
+   vector<Order> GetMyOrder(const multimap<int, Order>& orders);
+
+   // 打印我的预约
+   void PrintMyOrder(const vector<Order> myOrders);
+
+   // 获取当前学生可取消预约的记录
+   vector<Order> GetCanBeCanceledOrder(const multimap<int, Order>& orders);
+
+   // 重新写入文件
+   void RewriteOrderFile(const multimap<int, Order>& orders);
+
+   // 取消预约打印处理器
+   class CancelOrderPrintHandler
+   {
+   public:
+      int count;
+
+      void operator()(const Order& o);
+   };
+
 public:
    // 学生ID
    int id;
@@ -41,5 +62,5 @@ public:
     void ShowMyOrder(const multimap<int, Order>& orders);
 
     // 取消预约
-    void CancelOrder();
+    void CancelOrder(multimap<int, Order>& orders);
 };

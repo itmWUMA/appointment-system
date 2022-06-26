@@ -8,6 +8,7 @@
 #include <set>
 #include <vector>
 #include <map>
+#include <algorithm>
 using namespace std;
 
 /* 身份接口
