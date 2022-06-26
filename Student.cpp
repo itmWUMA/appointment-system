@@ -109,7 +109,9 @@ bool Student::operator==(const Student& stu)
 
 bool Student::operator<(const Student& stu) const
 {
-	return this->id < stu.id;
+	return (this->id != stu.id) ? (this->id < stu.id) : 
+		(this->name != stu.name ? this->name < stu.name : 
+			this->pwd < stu.pwd);
 }
 
 void Student::OpenMenu()

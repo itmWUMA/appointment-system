@@ -32,7 +32,9 @@ bool Teacher::operator==(const Teacher& t)
 
 bool Teacher::operator<(const Teacher& t) const
 {
-	return this->id < t.id;
+	return (this->id != t.id) ? (this->id < t.id) :
+		(this->name != t.name ? this->name < t.name :
+			this->pwd < t.pwd);
 }
 
 void Teacher::OpenMenu()
