@@ -13,6 +13,35 @@ void Student::WriteOrderFile(vector<Room>& rooms, int i, int week, int time)
 	ofs.close();
 }
 
+bool Student::IsRepeatOrder(const Order& order)
+{
+	// 读取Order文件
+	ifstream ifs(ORDER_FILE, ios::in);
+	if (!ifs.is_open())
+	{
+		cout << "文件不存在！" << endl;
+		ifs.close();
+		return false;
+	}
+
+	Order curOrder;
+	string name;
+	int id, room, week, time, n_status;
+	while (ifs >> week && ifs >> time && ifs >> id && ifs >> name && ifs >> room && ifs >> n_status)
+	{
+		curOrder = Order(name, id, week, time, room, (Order::Status)n_status);
+		// 比较两个order是否一致
+		if (order == curOrder)
+		{
+			ifs.close();
+			return true;
+		}
+	}
+
+	ifs.close();
+	return false;
+}
+
 Student::Student()
 {
 	this->name = "";
@@ -89,6 +118,14 @@ void Student::ApplyOrder(vector<Room>& rooms)
 		cin >> iptRoom;
 		if (iptRoom >= 1 && iptRoom <= 3)
 		{
+			// 判断是否重复预约
+			if (IsRepeatOrder(Order(this->name, this->id, iptWeek, iptTime, iptRoom, Order::Status::IN_REVIEW)))
+			{
+				cout << "该预约已记录，请勿重复预约！" << endl;
+				system("pause");
+				system("cls");
+				return;
+			}
 			// 将预约信息写入文件中
 			WriteOrderFile(rooms, iptRoom, iptWeek, iptTime);
 			cout << "预约已提交，请等待审核" << endl;

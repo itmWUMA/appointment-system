@@ -29,4 +29,7 @@ public:
 
 	// 将Status转化字符串
 	static string StatusToString(Status s);
+
+	// 重载==操作符
+	bool operator==(const Order& o) const;
 };

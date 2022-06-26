@@ -15,6 +15,9 @@ private:
    // 将预约写入文件中    [week  time  id  name  room  status]
    void WriteOrderFile(vector<Room>& rooms, int i, int week, int time);
 
+   // 判断是否重复预约
+   bool IsRepeatOrder(const Order& order);
+
 public:
    // 学生ID
    int id;

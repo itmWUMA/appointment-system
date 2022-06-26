@@ -36,3 +36,9 @@ string Order::StatusToString(Status s)
 		return string("");
 	}
 }
+
+bool Order::operator==(const Order& o) const
+{
+	return (this->id == o.id && this->name == o.name && this->room == o.room
+		&& this->time == o.time && this->week == o.week && this->status == o.status);
+}
