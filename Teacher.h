@@ -9,6 +9,10 @@
 class Teacher :
     public Identity
 {
+private:
+   // 重新写入文件
+   void RewriteOrderFile(const vector<Order>& orders);
+
 public:
    // 教师ID
    int id;
@@ -26,6 +30,6 @@ public:
    virtual void OpenMenu();
 
    // 审核预约
-   void ValidOrder();
+   void ValidOrder(vector<Order>& orders);
 };
 

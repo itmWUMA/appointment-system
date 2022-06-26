@@ -48,6 +48,9 @@ private:
 	// 登出(注销)
 	void Logout();
 
+	// 转化multimap为vector
+	vector<Order> ToVector(multimap<int, Order>& orders);
+
 public:
 	Controller();
 

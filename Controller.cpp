@@ -155,8 +155,33 @@ void Controller::StartStudent(Student& stu)
 
 void Controller::StartTeacher(Teacher& teacher)
 {
-	// 显示页面
-	teacher.OpenMenu();
+	int ipt = 0;
+	vector<Order> v;
+	do
+	{
+		// 显示页面
+		teacher.OpenMenu();
+		cin >> ipt;
+		switch (ipt)
+		{
+		case 0:	// 注销账号
+			Logout();
+			break;
+			
+		case 1:	// 查看所有预约
+			teacher.ShowAllOrder(this->orders);
+			break;
+
+		case 2:	// 审核预约
+			v = ToVector(this->orders);
+			teacher.ValidOrder(v);
+			ParseOrder();
+			break;
+
+		default:
+			break;
+		}
+	} while (ipt);
 }
 
 void Controller::StartAdmin(Admin& admin)
@@ -206,6 +231,14 @@ void Controller::Logout()
 {
 	cout << "注销成功！" << endl;
 	CleanAndPause();
+}
+
+vector<Order> Controller::ToVector(multimap<int, Order>& orders)
+{
+	vector<Order> res;
+	for (multimap<int, Order>::const_iterator itor = orders.begin(); itor != orders.end(); itor++)
+		res.push_back(itor->second);
+	return res;
 }
 
 Controller::Controller()
